@@ -2,3 +2,4 @@
 fork_protobuf-vala-0.1.0/
 protobuf-vala-0.1.0/
 pruebas/
+*.c
