@@ -1,0 +1,112 @@
+INFO:	2024-09-09 T 20:50:34.790037
+	Logger.vala, L-87: ProtocolBus.Logger.TraceOn
+	Logger started
+INFO:	2024-09-09 T 20:50:34.790212
+	Logger.vala, L-140: ProtocolBus.Logger.MainLloop
+	MainLoop started
+INFO:	2024-09-09 T 20:50:34.790770
+	MCastTransp.vala, L-133: ProtocolBus.MCastTransp.MainLoop
+	MCast_0:  Transp. Mainloop started -ProtocolBusMCastTransp
+TRACE:	2024-09-09 T 20:50:34.790820
+	Domain.vala, L-66: ProtocolBus.Domain.Initialize
+	Config file read and loaded:
+Domain {
+  Id: 0
+  ActivateDefaultTransport: false
+  DirectDispacthToSubs: false
+  KeyFile: ""
+  Transport {
+    TransportName: "MCast_0"
+    DllImport: "Default"
+    TransportClass: "Multicast"
+    ReceiveOwnMsgs: true
+    MCastParams {
+      LocalAddress: "Any"
+      MCastAddress: "239.255.0.11"
+      Port: 40069
+      TTL: 1
+      ReceiveBuffer: 134217727
+      SendBuffer: 134217727
+    }
+  }
+}
+
+INFO:	2024-09-09 T 20:50:34.791489
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-09-09 T 20:50:34.791538
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-09-09 T 20:50:34.791661
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Start Mainloop-DPSub
+INFO:	2024-09-09 T 20:50:34.791722
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S1: Start Mainloop-EPSub
+INFO:	2024-09-09 T 20:50:34.791806
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S3: Start Mainloop-ProtocolBusGSub
+INFO:	2024-09-09 T 20:50:34.791842
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Start Mainloop-ProtocolBusGSub
+TRACE:	2024-09-09 T 20:50:36.636774
+	StreanQueue.vala, L-58: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-09-09 T 20:50:36.637127
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-09-09 T 20:50:36.637556
+	Transport.vala, L-62: ProtocolBus.Transport.ParseAndEnqueue
+	MCast_0: Recive from wire - ProtocolBusMCastTransp2
+TRACE:	2024-09-09 T 20:50:36.637775
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToListeners
+	UP_SQ: Ready to send to Listeners - ProtocolBusStreamQueue		2
+TRACE:	2024-09-09 T 20:50:36.637993
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-09-09 T 20:50:36.638054
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S1: Message dispached - EPSub
+TRACE:	2024-09-09 T 20:50:36.638390
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Message dispached - ProtocolBusGSub
+TRACE:	2024-09-09 T 20:50:36.638458
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S3: Message dispached - ProtocolBusGSub
+TRACE:	2024-09-09 T 20:50:36.638651
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Message dispached - DPSub
+TRACE:	2024-09-09 T 20:50:36.638884
+	QueueMgr.vala, L-105: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S1: Message dispached - EPSub
+INFO:	2024-09-09 T 20:50:40.595718
+	AppSync.vala, L-115: ProtocolBus.AppSync.FinishApp
+	Signaling the FINISH!!!!
+
+INFO:	2024-09-09 T 20:50:40.595789
+	MCastTransp.vala, L-142: ProtocolBus.MCastTransp.MainLoop._lambda7_
+	MCast_0:  Transp. auxLoop finished -ProtocolBusMCastTransp
+INFO:	2024-09-09 T 20:50:40.595876
+	MCastTransp.vala, L-157: ProtocolBus.MCastTransp.MainLoop
+	MCast_0:  Transp. Mainloop finished -ProtocolBusMCastTransp
+INFO:	2024-09-09 T 20:50:40.598744
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-09-09 T 20:50:40.598757
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S3: Thread finished - ProtocolBusGSub
+INFO:	2024-09-09 T 20:50:40.598772
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-09-09 T 20:50:40.598836
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	ProtocolBusEndPointDef_S1: Thread finished - EPSub
+INFO:	2024-09-09 T 20:50:40.598859
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Thread finished - DPSub
+INFO:	2024-09-09 T 20:50:40.598872
+	QueueMgr.vala, L-113: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Thread finished - ProtocolBusGSub
+INFO:	2024-09-09 T 20:50:40.649070
+	Logger.vala, L-158: ProtocolBus.Logger.MainLloop
+	Logger: Thread finished - ProtocolBusLogger

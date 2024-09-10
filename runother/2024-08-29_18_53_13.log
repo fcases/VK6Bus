@@ -1,0 +1,249 @@
+INFO:	2024-08-29 T 18:53:13.014833
+	Logger.vala, L-87: ProtocolBus.Logger.TraceOn
+	Logger started
+INFO:	2024-08-29 T 18:53:13.015399
+	Logger.vala, L-140: ProtocolBus.Logger.MainLloop
+	MainLoop started
+TRACE:	2024-08-29 T 18:53:13.015193
+	Domain.vala, L-62: ProtocolBus.Domain.Initialize
+	Config file read and loaded
+TRACE:	2024-08-29 T 18:53:13.015773
+	
+ActivateTrace: true
+TraceLevel: 1
+Domain {
+  Id: 1
+  ActivateDefaultTransport: false
+  DirectDispacthToSubs: false
+  KeyFile: ""
+  Transport {
+    TransportName: "MCast_0"
+    DllImport: "Default"
+    TransportClass: "Multicast"
+    ReceiveOwnMsgs: true
+    MCastParams {
+      LocalAddress: "Any"
+      MCastAddress: "239.255.0.11"
+      Port: 40070
+      TTL: 1
+      ReceiveBuffer: 134217727
+      SendBuffer: 134217727
+    }
+  }
+}
+Domain {
+  Id: 0
+  ActivateDefaultTransport: false
+  DirectDispacthToSubs: false
+  KeyFile: ""
+  Transport {
+    TransportName: "UDPStar_0"
+    DllImport: "Default"
+    TransportClass: "UDPStar"
+    ReceiveOwnMsgs: true
+    UDPStarParams {
+      LocalAddress: "Any"
+      Port: 40069
+      EndPoint {
+        Host: "192.168.2.101"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.33"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.44"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.122"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.100"
+        Port: 40070
+      }
+      EndPoint {
+        Host: "192.168.2.95"
+        Port: 40070
+      }
+      ReceiveBuffer: 134217727
+      SendBuffer: 134217727
+    }
+  }
+}
+
+
+INFO:	2024-08-29 T 18:53:13.016998
+	UDPStar.vala, L-98: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0: Transp. Mainloop started -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:53:13.017144
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:53:13.017398
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:53:13.017473
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Start Mainloop-DPSub
+INFO:	2024-08-29 T 18:53:13.017660
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Start Mainloop-EPSub
+INFO:	2024-08-29 T 18:53:13.017769
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Start Mainloop-ProtocolBusGSub
+INFO:	2024-08-29 T 18:53:13.017855
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Start Mainloop-ProtocolBusGSub
+TRACE:	2024-08-29 T 18:53:14.978096
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:14.978327
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:24.790151
+	Transport.vala, L-62: ProtocolBus.Transport.ParseAndEnqueue
+	UDPStar_0: Recive from wire - ProtocolBusUDPStar2
+TRACE:	2024-08-29 T 18:53:24.790544
+	StreanQueue.vala, L-74: ProtocolBus.StreamQueue.DispatchMsgToListeners
+	UP_SQ: Ready to send to Listeners - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:24.790778
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Message dispached - EPSub
+TRACE:	2024-08-29 T 18:53:24.790789
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Message dispached - DPSub
+TRACE:	2024-08-29 T 18:53:24.790627
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:24.791013
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Message dispached - ProtocolBusGSub
+TRACE:	2024-08-29 T 18:53:24.791043
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Message dispached - ProtocolBusGSub
+TRACE:	2024-08-29 T 18:53:32.949129
+	Transport.vala, L-62: ProtocolBus.Transport.ParseAndEnqueue
+	UDPStar_0: Recive from wire - ProtocolBusUDPStar2
+TRACE:	2024-08-29 T 18:53:32.949274
+	StreanQueue.vala, L-74: ProtocolBus.StreamQueue.DispatchMsgToListeners
+	UP_SQ: Ready to send to Listeners - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:32.949337
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:32.949445
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Message dispached - DPSub
+TRACE:	2024-08-29 T 18:53:32.949504
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Message dispached - EPSub
+TRACE:	2024-08-29 T 18:53:32.949592
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Message dispached - ProtocolBusGSub
+TRACE:	2024-08-29 T 18:53:32.949765
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Message dispached - ProtocolBusGSub
+TRACE:	2024-08-29 T 18:53:40.233590
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:40.233817
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:41.745432
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:41.745732
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:44.313585
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:44.314195
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:48.625544
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:48.626148
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:49.417333
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:49.417739
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:50.185328
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:50.185743
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:50.794268
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:50.795198
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:51.345321
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:51.345793
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:51.881222
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:51.881796
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:53.609438
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:53:53.609855
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:53.609955
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:53:53.610215
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:53:54.258214
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:53:54.259011
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:53:59.848984
+	AppSync.vala, L-115: ProtocolBus.AppSync.FinishApp
+	Signaling the FINISH!!!!
+
+INFO:	2024-08-29 T 18:53:59.849175
+	UDPStar.vala, L-109: ProtocolBus.UDPStar.MainLoop._lambda9_
+	UDPStar_0: Transp. auxLoop finished -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:53:59.849378
+	UDPStar.vala, L-125: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0:  Transp. Mainloop finished -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:53:59.877981
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:53:59.878170
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Thread finished - EPSub
+INFO:	2024-08-29 T 18:53:59.878399
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Thread finished - DPSub
+INFO:	2024-08-29 T 18:53:59.878592
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Thread finished - ProtocolBusGSub
+INFO:	2024-08-29 T 18:53:59.878747
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:53:59.878505
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Thread finished - ProtocolBusGSub
+INFO:	2024-08-29 T 18:53:59.929132
+	Logger.vala, L-158: ProtocolBus.Logger.MainLloop
+	Logger: Thread finished - ProtocolBusLogger

@@ -1,0 +1,1 @@
+cat protocolBus.App.cfg  | protoc --proto_path=../proto --encode="protocolBus.Config.AppConfig" AppCfg.proto > protocolBus.App.bin

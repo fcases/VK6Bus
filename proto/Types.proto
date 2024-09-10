@@ -1,0 +1,27 @@
+syntax = "proto2";
+package ProtocolBus;
+option optimize_for = SPEED;
+
+message Msg  {
+	repeated string channels =1;
+	required fixed64 msgType  = 2;
+	required bytes payLoad =3;
+}
+
+message Packet {
+  repeated Msg messages = 1;
+  optional uint64 OutOfBand=2;
+}
+
+
+message KeyRegistry
+{
+	required string Date = 1;
+	required string Time = 2;
+	required string Sender = 3;	//user@machine
+	required string Phrase = 4;
+	required string Salt = 5;
+	required bytes AESKey = 6;
+	required bytes AESIV = 7;
+}
+

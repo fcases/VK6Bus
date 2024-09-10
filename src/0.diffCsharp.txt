@@ -1,0 +1,13 @@
+1 .- los logs no pueden llamar a la stack para saber que funcion fue llamada antes
+2 .- redefinidos los niveles de log añadido warning (o info)
+3 .- no se fragmentan los mensajes mayores de 64k
+4 .- leer desde formato texto un mesaje esta hecho a mano pues no lo hace el valaprotobuf
+5 .- hechos a mano un manualresetevent y waitfor multiple objecys .... repensalo no estaria mal, de momento funciona
+6 .- Ojp, las claves no las cojo de directorio cogido por variable de entorno
+7 .- deberia verificar si fichero existe de una unica maneera, mirar leer appcfg y fichero de cifra
+8 .- remirar si el cifrado no deberia estar en la clase transport y no en domain
+9 .- faltan transportes centralizados, y los mensajes extendidos
+10.- quitar direct to listeners
+11.- quitar outofband, ....quizas para fragmentacion de paquetes 
+12.- remirar el formato de los ficheros de claves
+

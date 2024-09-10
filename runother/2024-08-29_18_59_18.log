@@ -1,0 +1,145 @@
+INFO:	2024-08-29 T 18:59:18.989685
+	Logger.vala, L-87: ProtocolBus.Logger.TraceOn
+	Logger started
+INFO:	2024-08-29 T 18:59:18.990083
+	Logger.vala, L-140: ProtocolBus.Logger.MainLloop
+	MainLoop started
+TRACE:	2024-08-29 T 18:59:18.989845
+	Domain.vala, L-62: ProtocolBus.Domain.Initialize
+	Config file read and loaded
+TRACE:	2024-08-29 T 18:59:18.990314
+	
+ActivateTrace: true
+TraceLevel: 1
+Domain {
+  Id: 1
+  ActivateDefaultTransport: false
+  DirectDispacthToSubs: false
+  KeyFile: ""
+  Transport {
+    TransportName: "MCast_0"
+    DllImport: "Default"
+    TransportClass: "Multicast"
+    ReceiveOwnMsgs: true
+    MCastParams {
+      LocalAddress: "Any"
+      MCastAddress: "239.255.0.11"
+      Port: 40070
+      TTL: 1
+      ReceiveBuffer: 134217727
+      SendBuffer: 134217727
+    }
+  }
+}
+Domain {
+  Id: 0
+  ActivateDefaultTransport: false
+  DirectDispacthToSubs: false
+  KeyFile: ""
+  Transport {
+    TransportName: "UDPStar_0"
+    DllImport: "Default"
+    TransportClass: "UDPStar"
+    ReceiveOwnMsgs: true
+    UDPStarParams {
+      LocalAddress: "localhost"
+      Port: 40069
+      EndPoint {
+        Host: "192.168.2.101"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.33"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.44"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.95"
+        Port: 40069
+      }
+      EndPoint {
+        Host: "192.168.2.100"
+        Port: 40070
+      }
+      EndPoint {
+        Host: "192.168.2.95"
+        Port: 40070
+      }
+      ReceiveBuffer: 134217727
+      SendBuffer: 134217727
+    }
+  }
+}
+
+
+ERROR:	2024-08-29 T 18:59:18.990891
+	UDPStar.vala, L-68: ProtocolBus.UDPStar.InitializeSocket
+	UDPStar_0: no catch comment
+	Error binding to address [::1]:51460: Address family not supported by protocol
+	Error binding to address [::1]:51460: Address family not supported by protocol
+ERROR:	2024-08-29 T 18:59:18.990976
+	UDPStar.vala, L-68: ProtocolBus.UDPStar.InitializeSocket
+	UDPStar_0: no catch comment
+	Error binding to address [::1]:40069: Address family not supported by protocol
+	Error binding to address [::1]:40069: Address family not supported by protocol
+INFO:	2024-08-29 T 18:59:18.991168
+	UDPStar.vala, L-98: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0: Transp. Mainloop started -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:59:18.991363
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:59:18.991514
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:59:18.991622
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Start Mainloop-DPSub
+INFO:	2024-08-29 T 18:59:18.991719
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Start Mainloop-EPSub
+INFO:	2024-08-29 T 18:59:18.991821
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Start Mainloop-ProtocolBusGSub
+INFO:	2024-08-29 T 18:59:18.991905
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Start Mainloop-ProtocolBusGSub
+TRACE:	2024-08-29 T 18:59:26.844502
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		2
+TRACE:	2024-08-29 T 18:59:26.844897
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+INFO:	2024-08-30 T 11:17:29.828146
+	AppSync.vala, L-115: ProtocolBus.AppSync.FinishApp
+	Signaling the FINISH!!!!
+
+INFO:	2024-08-30 T 11:17:29.828269
+	UDPStar.vala, L-109: ProtocolBus.UDPStar.MainLoop._lambda9_
+	UDPStar_0: Transp. auxLoop finished -ProtocolBusUDPStar
+INFO:	2024-08-30 T 11:17:29.828367
+	UDPStar.vala, L-125: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0:  Transp. Mainloop finished -ProtocolBusUDPStar
+INFO:	2024-08-30 T 11:17:29.856991
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-30 T 11:17:29.857232
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Thread finished - EPSub
+INFO:	2024-08-30 T 11:17:29.857039
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Thread finished - DPSub
+INFO:	2024-08-30 T 11:17:29.857338
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Thread finished - ProtocolBusGSub
+INFO:	2024-08-30 T 11:17:29.857654
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-30 T 11:17:29.857786
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Thread finished - ProtocolBusGSub
+INFO:	2024-08-30 T 11:17:29.908059
+	Logger.vala, L-158: ProtocolBus.Logger.MainLloop
+	Logger: Thread finished - ProtocolBusLogger

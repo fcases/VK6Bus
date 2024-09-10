@@ -1,0 +1,1 @@
+valac  --vapi protocolbus.vapi -X -shared -X -fpic   --library  -X --pkg protobuf-vala  --header protocolbus.h *.vala -o libprotocolbus.so

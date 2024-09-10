@@ -1,0 +1,82 @@
+INFO:	2024-08-29 T 18:35:34.992269
+	Logger.vala, L-87: ProtocolBus.Logger.TraceOn
+	Logger started
+INFO:	2024-08-29 T 18:35:34.992408
+	Logger.vala, L-140: ProtocolBus.Logger.MainLloop
+	MainLoop started
+INFO:	2024-08-29 T 18:35:34.992822
+	UDPStar.vala, L-98: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0: Transp. Mainloop started -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:35:34.992928
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:35:34.993102
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Start Mainloop-ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:35:34.993166
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Start Mainloop-DPSub
+INFO:	2024-08-29 T 18:35:34.993371
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Start Mainloop-ProtocolBusGSub
+INFO:	2024-08-29 T 18:35:34.993397
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Start Mainloop-EPSub
+INFO:	2024-08-29 T 18:35:34.993447
+	QueueMgr.vala, L-89: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Start Mainloop-ProtocolBusGSub
+TRACE:	2024-08-29 T 18:36:37.330451
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:36:37.330812
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:36:37.330849
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:36:37.331072
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:36:45.730317
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:36:45.730625
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+TRACE:	2024-08-29 T 18:36:45.730670
+	StreanQueue.vala, L-66: ProtocolBus.StreamQueue.DispatchMsgToTransports
+	DOWN_SQ: Ready to send to Transports - ProtocolBusStreamQueue		1
+TRACE:	2024-08-29 T 18:36:45.730945
+	QueueMgr.vala, L-106: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Message dispached - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:36:47.938152
+	AppSync.vala, L-115: ProtocolBus.AppSync.FinishApp
+	Signaling the FINISH!!!!
+
+INFO:	2024-08-29 T 18:36:47.938259
+	UDPStar.vala, L-109: ProtocolBus.UDPStar.MainLoop._lambda9_
+	UDPStar_0: Transp. auxLoop finished -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:36:47.938434
+	UDPStar.vala, L-125: ProtocolBus.UDPStar.MainLoop
+	UDPStar_0:  Transp. Mainloop finished -ProtocolBusUDPStar
+INFO:	2024-08-29 T 18:36:47.970586
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	UP_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:36:47.970669
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S3: Thread finished - ProtocolBusGSub
+INFO:	2024-08-29 T 18:36:47.971116
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S2: Thread finished - ProtocolBusGSub
+INFO:	2024-08-29 T 18:36:47.971353
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DataPck_S0: Thread finished - DPSub
+INFO:	2024-08-29 T 18:36:47.971477
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	EndPointDef_S1: Thread finished - EPSub
+INFO:	2024-08-29 T 18:36:47.987589
+	QueueMgr.vala, L-115: ProtocolBus.QueueMgr.MainLoop
+	DOWN_SQ: Thread finished - ProtocolBusStreamQueue
+INFO:	2024-08-29 T 18:36:48.037905
+	Logger.vala, L-158: ProtocolBus.Logger.MainLloop
+	Logger: Thread finished - ProtocolBusLogger

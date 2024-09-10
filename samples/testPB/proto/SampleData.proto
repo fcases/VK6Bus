@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package SampleData;
+option optimize_for = SPEED;
+
+message DataPck
+{
+	required string a=1 [default ="hola"];
+	required bytes Data = 2;		
+}								
+
+
