@@ -1,0 +1,22 @@
+{
+"name": "MyappName",
+  "scripts": {
+    // serve the app locally
+    // "start": "webpack serve",
+
+    // build the app for production
+    // "build": "webpack --mode=production",
+
+    // run unit tests
+    // "unitTest": "jest",
+
+    run e2e test
+    "e2e:": "npx playwright install && npx playwright test --config=playwright.config.ts --trace on",
+
+    // run e2e test using playwright ui mo
+    // "e2e:uiMode": "yarn e2e --ui",
+
+    // run playwright code generation to help with writing e2e tests
+    // "codegen": "npx playwright codegen appName.com"
+  }
+}

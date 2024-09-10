@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch testPB",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/testPB",
+
+            // "args": ["-arg1", "-arg2"],
+            // "preLaunchTask": "rmfile",
+            // "env": {
+            //     "COUNTRY": "Maltese",
+            //     "INTERVAL_SECS": "3"
+            // },
+            // "console": "integratedTerminal",
+            // "mode": "debug",
+            // "preLaunchTask": "rmfile",
+        },
+        {
+            "name": "Launch encapsular",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/encapsularNS",
+            // "args": ["${workspaceFolder}/proto", "${workspaceFolder}/tools/encapsular/srcproto"],
+            "args": ["${workspaceFolder}/proto", "${workspaceFolder}/srcproto"]
+        },
+        {
+            "name": "Sample test PB",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/testPB",
+            // "args": ["${workspaceFolder}/proto", "${workspaceFolder}/tools/encapsular/srcproto"],
+            // "args": ["${workspaceFolder}/proto", "${workspaceFolder}/srcproto"]
+        }   
+    ]
+    // ,"compounds": [
+    //     {
+    //         "name": "Go and Python Tickers",
+    //         "configurations": ["Launch encapsular", "Launch testPB"]
+    //     }
+    // ]
+}

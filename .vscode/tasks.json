@@ -1,0 +1,333 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+     // for the documentation about the tasks.json format
+
+     //  default build task for vala project
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ProtocolBus shared",
+            "type": "shell",
+            "command": "valac",
+            "args": [
+                "-g",
+                "--library",
+                "${workspaceFolder}/lib//protocolbus",
+                "-H",
+                "${workspaceFolder}/lib/protocolbus.h",
+                "${workspaceFolder}/src/*.vala",
+                "${workspaceFolder}/src/extra/*.vala",
+                "${workspaceFolder}/srcproto/*.vala",
+                "--vapidir",
+                "${workspaceFolder}/tools/protobuf-vala-0.1.0/src",
+                "--vapidir",
+                "${workspaceFolder}/vapi",
+                "--pkg",
+                "glib-2.0",
+                "--pkg",
+                "gee-0.8",
+                "--pkg",
+                "gio-2.0",
+                "--pkg",
+                "posix",
+                "--pkg",
+                "linux",
+                "--pkg",
+                "libgcrypt",
+                "-X",
+                "-fPIC",
+                "-X",
+                "-shared",
+                "-o",
+                "${workspaceFolder}/lib/libprotocolbus.so",
+                "-X",
+                "-I${workspaceFolder}/lib",
+                "-X",
+                "-I/usr/include/glib-2.0",
+                "-X",
+                "-I/usr/lib/x86_64-linux-gnu/glib-2.0/include", 
+                "-X",
+                "-lglib-2.0", 
+                "-X",
+                "-I/usr/include/gee-0.8", 
+                "-X",
+                "-lgee-0.8",
+                "-X",
+                "-lgobject-2.0",
+                "-X",
+                "-pthread", 
+                "-X",
+                "-I/usr/include/libmount",
+                "-X",
+                "-I/usr/include/blkid",
+                "-X",
+                "-lgio-2.0", 
+                "-X",
+                "-lpcreposix", 
+                "-X",
+                "-lselinux", 
+                "-X",
+                "-lgcrypt",
+                "--cc",
+                "clang"
+
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "Exec EncapsularNS"
+            ]
+        },
+        {
+            "label": "PB Link",
+            "type": "shell",
+            "command": "clang",
+            "args": [     
+                "-g",   
+                "src/*c",
+                "src/extra/*c",
+                "srcproto/*c",
+                "-I${workspaceFolder}/lib",
+                "-shared",
+                "-fPIC",
+                "`pkg-config",
+                "--cflags",
+                "--libs",
+                "glib-2.0`",
+                "`pkg-config",
+                "--cflags",
+                "--libs",
+                "gee-0.8`",
+                "`pkg-config",
+                "--cflags",
+                "--libs",
+                "gio-2.0`",
+                "`pkg-config", 
+                "--cflags",
+                "--libs",
+                "libpcreposix`",
+                "`pkg-config",
+                "--cflags",
+                "--libs",
+                "libselinux`",
+                "`pkg-config", 
+                "--cflags",
+                "--libs",
+                "libgcrypt`",
+                "-o",
+                "${workspaceFolder}/lib/libprotocolbus.so"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": [
+                "PB2C compile2C"
+            ]
+        },
+        {
+            "label": "PB2C compile2C",
+            "type": "shell",
+            "command": "valac",
+            "args": [
+                "-C",
+                "-g",
+                "${workspaceFolder}/src/*.vala",
+                "${workspaceFolder}/src/extra/*.vala",
+                "${workspaceFolder}/srcproto/*.vala",
+                "-H",
+                "${workspaceFolder}/lib/protocolbus.h",
+                "--vapidir",
+                "${workspaceFolder}/tools/protobuf-vala-0.1.0/src",
+                "--vapidir",
+                "${workspaceFolder}/vapi",
+                "--pkg",
+                "glib-2.0",
+                "--pkg",
+                "gee-0.8",
+                "--pkg",
+                "gio-2.0",
+                "--pkg",
+                "posix",
+                "--pkg",
+                "linux",
+                "--pkg",
+                "libgcrypt",
+                "--library",
+                "${workspaceFolder}/lib//protocolbus"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": [
+                "Exec EncapsularNS"
+            ]
+        },
+        {
+            // "Exec Encapsular NS _.pb.vala a .vala",
+            "label": "Exec EncapsularNS",
+            "type": "shell",
+            "command": "encapsularNS",
+            "args": [
+                "${workspaceFolder}/proto", 
+                "${workspaceFolder}/srcproto"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": [
+                "PBp2v proto2vala",
+                "Generar encapsular"
+            ]
+        },
+        {
+            "label": "PBp2v proto2vala",
+            "type": "shell",
+            "command": "protoc",
+            "args": [
+                "--proto_path",
+                "${workspaceFolder}/proto",
+                "--vala_out",
+                "${workspaceFolder}/proto",
+                "--plugin",
+                "${workspaceFolder}/bin/protoc-gen-vala",
+                "${workspaceFolder}/proto/*.proto"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Generar encapsular",
+            "type": "shell",
+            "command": "valac",
+            "args": [
+                "-g",
+                "${workspaceFolder}/tools/encapsular/src/*.gs",
+                "--pkg",
+                "gio-2.0",
+                "-o",
+                "${workspaceFolder}/bin/encapsularNS"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+        },
+        {
+            "label": "Sample testPB",
+            "type": "shell",
+            "command": "valac",
+            "args": [
+                "-g",
+                "${workspaceFolder}/samples/testPB/src/*.vala",
+                "${workspaceFolder}/samples/testPB/proto/*.vala",
+                "--vapidir",
+                "${workspaceFolder}/lib",
+                "--pkg",
+                "protocolbus",
+                "--pkg",
+                "glib-2.0",
+                "--pkg",
+                "gee-0.8",
+                "--pkg",
+                "gio-2.0",
+                // "--pkg",
+                // "posix",
+                // "--pkg",
+                // "linux",
+                // "--pkg",
+                // "libgcrypt",
+                "-X",
+                "-I${workspaceFolder}/lib",
+                "-X",
+                "-L${workspaceFolder}/lib",
+                "-X",
+                "-lprotocolbus",
+                "-o",
+                "${workspaceFolder}/bin/testPB"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "dependsOn": [
+                "testPB genera proto"
+            ]
+        },
+        {
+            "label": "testPB genera proto",
+            "type": "shell",
+            "command": "protoc",
+            "args": [
+                "--proto_path",
+                "${workspaceFolder}/samples/testPB/proto",
+                "--vala_out",
+                "${workspaceFolder}/samples/testPB/proto",
+                "--plugin",
+                "${workspaceFolder}/bin/protoc-gen-vala",
+                "${workspaceFolder}/samples/testPB/proto/*.proto"
+            ],
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        // ,{
+        //     // this task is for running playwright end to end test
+        //     "type": "npm",
+        //     "script": "e2e", script descrito en package.json
+        //     "path": "src",
+        //     "problemMatcher": [],
+        //     "label": "Run e2e test",
+        //     "detail": "npx playwright install && npx playwright test --config=playwright.config.ts --trace on",
+        //     "group": {
+        //         "kind": "test",
+        //     },
+        //     // use this to inject certain Node JS environment variables to be used by your test
+        //     "options": {
+        //         "env": {
+        //             "TESTCLOUD": "prod"
+        //         }
+        //     }
+        // },
+    ]
+}
