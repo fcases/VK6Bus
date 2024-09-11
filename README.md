@@ -1,2 +1,2 @@
 # VKBus
-Publish  subscribe framework thru multicast (and other transports) with protocol buffers as definitiod wireformat datan an
+Publish  subscribe framework thru multicast (and other transports) with protocol buffers as definition and wireformat data
