@@ -241,6 +241,17 @@ typedef struct _ProtocolBusCrossConnectorDefText ProtocolBusCrossConnectorDefTex
 typedef struct _ProtocolBusCrossConnectorDefTextClass ProtocolBusCrossConnectorDefTextClass;
 typedef struct _ProtocolBusCrossConnectorDefTextPrivate ProtocolBusCrossConnectorDefTextPrivate;
 
+#define PROTOCOL_BUS_TYPE_EXTENSION_TEXT (protocol_bus_extension_text_get_type ())
+#define PROTOCOL_BUS_EXTENSION_TEXT(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), PROTOCOL_BUS_TYPE_EXTENSION_TEXT, ProtocolBusExtensionText))
+#define PROTOCOL_BUS_EXTENSION_TEXT_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), PROTOCOL_BUS_TYPE_EXTENSION_TEXT, ProtocolBusExtensionTextClass))
+#define PROTOCOL_BUS_IS_EXTENSION_TEXT(obj) (G_TYPE_CHECK_INSTANCE_TYPE ((obj), PROTOCOL_BUS_TYPE_EXTENSION_TEXT))
+#define PROTOCOL_BUS_IS_EXTENSION_TEXT_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), PROTOCOL_BUS_TYPE_EXTENSION_TEXT))
+#define PROTOCOL_BUS_EXTENSION_TEXT_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), PROTOCOL_BUS_TYPE_EXTENSION_TEXT, ProtocolBusExtensionTextClass))
+
+typedef struct _ProtocolBusExtensionText ProtocolBusExtensionText;
+typedef struct _ProtocolBusExtensionTextClass ProtocolBusExtensionTextClass;
+typedef struct _ProtocolBusExtensionTextPrivate ProtocolBusExtensionTextPrivate;
+
 #define PROTOCOL_BUS_TYPE_WAIT_HANDLE (protocol_bus_wait_handle_get_type ())
 #define PROTOCOL_BUS_WAIT_HANDLE(obj) (G_TYPE_CHECK_INSTANCE_CAST ((obj), PROTOCOL_BUS_TYPE_WAIT_HANDLE, ProtocolBusWaitHandle))
 #define PROTOCOL_BUS_WAIT_HANDLE_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), PROTOCOL_BUS_TYPE_WAIT_HANDLE, ProtocolBusWaitHandleClass))
@@ -622,6 +633,15 @@ struct _ProtocolBusCrossConnectorDefTextClass {
 	ProtocolBusCrossConnectorDefClass parent_class;
 };
 
+struct _ProtocolBusExtensionText {
+	GObject parent_instance;
+	ProtocolBusExtensionTextPrivate * priv;
+};
+
+struct _ProtocolBusExtensionTextClass {
+	GObjectClass parent_class;
+};
+
 struct _ProtocolBusWaitHandle {
 	GObject parent_instance;
 	ProtocolBusWaitHandlePrivate * priv;
@@ -944,6 +964,13 @@ VALA_EXTERN ProtocolBusCrossConnectorDefText* protocol_bus_cross_connector_def_t
                                                                                              const gchar* teksto);
 VALA_EXTERN ProtocolBusCrossConnectorDefText* protocol_bus_cross_connector_def_text_new (void);
 VALA_EXTERN ProtocolBusCrossConnectorDefText* protocol_bus_cross_connector_def_text_construct (GType object_type);
+VALA_EXTERN GType protocol_bus_extension_text_get_type (void) G_GNUC_CONST ;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (ProtocolBusExtensionText, g_object_unref)
+VALA_EXTERN ProtocolBusExtensionText* protocol_bus_extension_text_new_from_text (const gchar* teksto);
+VALA_EXTERN ProtocolBusExtensionText* protocol_bus_extension_text_construct_from_text (GType object_type,
+                                                                           const gchar* teksto);
+VALA_EXTERN ProtocolBusExtensionText* protocol_bus_extension_text_new (void);
+VALA_EXTERN ProtocolBusExtensionText* protocol_bus_extension_text_construct (GType object_type);
 VALA_EXTERN GType protocol_bus_wait_handle_get_type (void) G_GNUC_CONST ;
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (ProtocolBusWaitHandle, g_object_unref)
 VALA_EXTERN GType protocol_bus_ilogger_get_type (void) G_GNUC_CONST ;

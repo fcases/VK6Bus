@@ -122,6 +122,11 @@ namespace ProtocolBus {
 		public EndPointDefText.from_text (string teksto = "");
 	}
 	[CCode (cheader_filename = "protocolbus.h")]
+	public class ExtensionText : GLib.Object {
+		public ExtensionText ();
+		public ExtensionText.from_text (string teksto = "");
+	}
+	[CCode (cheader_filename = "protocolbus.h")]
 	public class GPub<theType> {
 		protected uint64 myTypeName;
 		public GPub (ProtocolBus.Domain theDomain);

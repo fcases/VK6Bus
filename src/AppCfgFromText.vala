@@ -1,5 +1,5 @@
 namespace ProtocolBus {
-    const string str_pattern="#.*|[0-9a-zA-Z_'.'@](?>[0-9a-zA-Z_'.'@+-]*)|\\{|\\}";
+    const string str_pattern="\\[|\\]|#.*|[0-9a-zA-Z_'.'@](?>[0-9a-zA-Z_'.'@+-]*)|\\{|\\}";
     Regex pattern;  
     string int_text;
     MatchInfo my_match ; 
@@ -120,7 +120,6 @@ namespace ProtocolBus {
     public class TransportDefText : TransportDef {
 
         public TransportDefText.from_text(string teksto="") {
-
             bool fino=false;
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
@@ -157,6 +156,10 @@ namespace ProtocolBus {
                     var start = new UDPStarDefConfigText.from_text();
                     this.UDPStarParams=start;
                     break;
+                case "[":
+                    my_match.next(); my_match.next(); my_match.next();
+                    new ExtensionText.from_text();
+                    break;
                 case "}":
                     fino=true;
                     break;
@@ -175,7 +178,7 @@ namespace ProtocolBus {
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
             while( my_match.matches() && !fino ) {
-                token = token = my_match.fetch(0);
+                token = my_match.fetch(0);
                 if( token !="}" ) my_match.next();    
                 value = my_match.fetch(0);
 
@@ -223,7 +226,7 @@ namespace ProtocolBus {
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
             while( my_match.matches() && !fino ) {
-                token = token = my_match.fetch(0);
+                token = my_match.fetch(0);
                 if( token !="}" ) my_match.next();    
                 value = my_match.fetch(0);
 
@@ -254,7 +257,7 @@ namespace ProtocolBus {
                     break;
                 }
 
-                if( !fino) my_match.next();
+                if( !fino ) my_match.next();
             }
         }
     }
@@ -266,7 +269,7 @@ namespace ProtocolBus {
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
             while( my_match.matches() && !fino ) {
-                token = token = my_match.fetch(0);
+                token = my_match.fetch(0);
                 if( token !="}" ) my_match.next();    
                 value = my_match.fetch(0);
 
@@ -299,7 +302,7 @@ namespace ProtocolBus {
                     break;
                 }
 
-                if( !fino) my_match.next();
+                if( !fino ) my_match.next();
             }
         }
     }
@@ -311,7 +314,7 @@ namespace ProtocolBus {
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
             while( my_match.matches() && !fino ) {
-                token = token = my_match.fetch(0);
+                token = my_match.fetch(0);
                 if( token !="}" ) my_match.next();    
                 value = my_match.fetch(0);
 
@@ -329,7 +332,7 @@ namespace ProtocolBus {
                     break;
                 }
 
-                if( !fino) my_match.next();
+                if( !fino ) my_match.next();
             }
         }
     }
@@ -341,7 +344,7 @@ namespace ProtocolBus {
             if( teksto!="" ) PBusConfig_load_text(teksto);
 
             while( my_match.matches() && !fino ) {
-                token = token = my_match.fetch(0);
+                token = my_match.fetch(0);
                 if( token !="}" ) my_match.next();    
                 value = my_match.fetch(0);
 
@@ -354,7 +357,36 @@ namespace ProtocolBus {
                     break;
                 }
 
-                if( !fino) my_match.next();
+                if( !fino ) my_match.next();
+            }
+
+        }
+    }
+
+    public class ExtensionText: Object {
+
+        public ExtensionText.from_text(string teksto="") {
+            bool fino=false;
+            if( teksto!="" ) PBusConfig_load_text(teksto);
+
+            while( my_match.matches() && !fino ) {
+                token = my_match.fetch(0);
+                if( token !="}" ) my_match.next();    
+                value = my_match.fetch(0);
+
+                switch( token ) {
+                case "}":
+                    fino=true;
+                    break;
+                default:
+                    if( value == "{" ) {
+                        my_match.next();
+                        new ExtensionText.from_text();
+                    } 
+                break;
+                }
+
+                if( !fino ) my_match.next();
             }
 
         }

@@ -190,6 +190,7 @@ namespace ProtocolBus
                 // other case: Load the dllimport assembly ////////////////////////////
                 default: 
                     try {   
+                        stdout.printf("%s",t.DllImport);
                         // The name of the assembly should equal to the namespace of the class.
                         //  Assembly assembly = Assembly.LoadFrom(t.DllImport + ".dll");
                         //  string fullTypeName = t.DllImport + "." + t.TransportClass;
