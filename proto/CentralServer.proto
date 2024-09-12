@@ -1,0 +1,46 @@
+syntax = "proto2";
+
+import "AppCfg.proto";
+package ProtocolBus.Transports.CentralServer;
+option optimize_for = SPEED;
+
+
+extend ProtocolBus.Config.TransportDef
+{
+	optional XMPPDefConfig XMPPParams=4001;
+	optional K6ServerDefConfig K6ServerParams=4002;
+}
+
+message XMPPDefConfig
+{ 
+// DllImport: "ProtocolBus.Transports.CentralServer"  
+// TransportClass: "XMPP"
+// Needs 2 users, 1st one for sending, 2nd one acting as a topic receiving all messages.
+
+	required string SendingUser=1;
+	required string SendingPssw=2;
+	required string TopicUser=3;
+	required string TopicPssw=4;
+	optional string Server=5 [default = "gmail.com" ];
+	optional string ConnectServer=6 [default = "talk.google.com" ];
+	optional ProxyDefConfig Proxy=7;
+}
+
+message K6ServerDefConfig
+{ 
+// DllImport: "ProtocolBus.Transports.CentralServer"  
+// TransportClass: "K6Server"
+
+	required ProtocolBus.Config.EndPointDef K6Server=1;		 
+	required string Service=2; 
+	required string Password=3;
+	optional ProxyDefConfig Proxy=4;
+}
+
+message ProxyDefConfig
+{
+	required ProtocolBus.Config.EndPointDef Server=1;
+	optional string User=2;
+	optional string Password=3;
+}
+
