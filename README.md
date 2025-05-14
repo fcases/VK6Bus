@@ -6,7 +6,7 @@ Publish  subscribe framework thru multicast (and other transports) with protocol
 ```mermaid
 %%{
   init: {
-    'theme': 'base',
+    'theme': 'dark',
     'themeVariables': {
       'primaryColor': '#BB2528',
       'primaryTextColor': '#fff',
