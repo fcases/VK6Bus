@@ -4,6 +4,18 @@ Publish  subscribe framework thru multicast (and other transports) with protocol
 
 
 ```mermaid
-flowchart LR
-  A --> B
+---
+title: Example Git diagram
+---
+gitGraph
+   commit
+   commit
+   branch develop
+   checkout develop
+   commit
+   commit
+   checkout main
+   merge develop
+   commit
+   commit
 ```
